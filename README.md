@@ -6,11 +6,11 @@ elixir_kaffe_codealong is a Elixir app with a Kafka listener. This can also para
 
 ## Steps to run
 Start postres DB
-docker-compose -f docker-compose-postgre.yaml up -d
+```docker-compose -f docker-compose-postgre.yaml up -d```
 
 Start Kafka, SQL Server and set up Kafka Streams
-export DEBEZIUM_VERSION=1.6
-docker-compose -f docker-compose-sqlserver.yaml up -d
+```export DEBEZIUM_VERSION=1.6```
+```docker-compose -f docker-compose-sqlserver.yaml up -d```
 
 Register SQL Server with Debezium Connector. This will set up the topics for each of the tables to continously stream data changes in the tables.
-curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @register-sqlserver.json
+```curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @register-sqlserver.json```
